@@ -1,5 +1,6 @@
-This GUI allows for effecient routing using a linear regressoin ML model.
-I have trained this model to identify the pattern between weather and traffic flow in Chiacago!
+I am working on a Web app allows for effecient routing using a linear regressoin ML model.
+I have trained this model to identify the pattern between weather and traffic flow initially for Chicago.
+Now working toward Middletown, Connecticut!
 
 
 
