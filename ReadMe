@@ -1,6 +1,8 @@
-I am working on a Web app allows for effecient routing using a linear regressoin ML model.
-I have trained this model to identify the pattern between weather and traffic flow initially for Chicago.
-Now working toward Middletown, Connecticut!
+Carrive Dynamic Routing App
 
+I am developing a web application that delivers efficient, real-time routing by leveraging the Dijkstra algorithm to compute the shortest path along an existing road network. The app intelligently snaps user-provided GPS coordinates to the nearest vertices, ensuring accurate alignment with network edges.
 
+To further enhance routing efficiency, I'm integrating traffic congestion insights using a sophisticated LSTM model that combines linear regression techniques. Initially, I trained this model on weather and traffic flow data from Chicago, uncovering critical patterns that affect congestion. I am now extending and fine-tuning the model for Middletown, Connecticut, to deliver actionable, real-time traffic forecasting and route optimization.
+
+This solution is designed to empower logistics, utilities, and transportation industries with dynamic, data-driven routing and operational intelligence.
 
