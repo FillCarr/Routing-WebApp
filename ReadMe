@@ -1,4 +1,3 @@
-```markdown
 # Carrive Dynamic Routing App
 
 [Demo Video](https://youtu.be/1G6DZtXQV3U)
@@ -18,25 +17,6 @@ This solution targets logistics, utilities, and transportation industries seekin
 - Real-time traffic congestion forecasting powered by LSTM and linear regression
 - Scalable model initially trained on Chicago data and fine-tuned for new cities
 - Web-based interactive map interface
-
-## File Structure
-
-```
-
-/project-root
-├── index.html                   # Main application page with map UI
-├── data/
-│   ├── road\_network.json       # Graph data representing road network vertices and edges
-│   ├── traffic\_data.json       # Real-time and historical traffic data inputs
-│   ├── weather\_data.json       # Weather data for congestion modeling
-│   └── model\_weights/          # Stored LSTM and regression model parameters
-├── src/
-│   ├── routing.js              # Dijkstra algorithm implementation and snapping logic
-│   ├── traffic\_model.js        # LSTM and regression traffic forecasting logic
-│   └── app.js                  # Main app initialization and event handling
-└── README.md                   # Project documentation
-
-````
 
 ## Getting Started
 
@@ -71,9 +51,3 @@ This project is licensed under the MIT License.
 Maintained by Carrive Team
 Email: [support@carriveapp.com](mailto:support@carriveapp.com)
 
-```
-
----
-
-Would you like help generating a minimal `index.html` or example routing code next?
-```
