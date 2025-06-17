@@ -14,7 +14,7 @@ This solution targets logistics, utilities, and transportation industries seekin
 
 - Shortest path routing using Dijkstra’s algorithm on road networks
 - GPS coordinate snapping to nearest network vertices for accuracy
-- Real-time traffic congestion forecasting powered by LSTM and linear regression (In-Progress)
+- Real-time traffic congestion forecasting powered by LSTM and linear regression
 - Scalable model initially trained on Chicago data and fine-tuned for new cities
 - Web-based interactive map interface
 
