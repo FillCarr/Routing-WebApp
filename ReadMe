@@ -1,8 +1,26 @@
-Carrive Dynamic Routing App https://youtu.be/1G6DZtXQV3U
+# Carrive Dynamic Routing App
 
-I am developing a web application that delivers efficient, real-time routing by leveraging the Dijkstra algorithm to compute the shortest path along an existing road network. The app intelligently snaps user-provided GPS coordinates to the nearest vertices, ensuring accurate alignment with network edges.
+[Demo Video](https://youtu.be/1G6DZtXQV3U)
 
-To further enhance routing efficiency, I'm integrating traffic congestion insights using a sophisticated LSTM model that combines linear regression techniques. Initially, I trained this model on weather and traffic flow data from Chicago, uncovering critical patterns that affect congestion. I am now extending and fine-tuning the model for Middletown, Connecticut, to deliver actionable, real-time traffic forecasting and route optimization.
+## Overview
 
-This solution is designed to empower logistics, utilities, and transportation industries with dynamic, data-driven routing and operational intelligence.
+Carrive is a web application that delivers efficient, real-time routing by computing shortest paths along existing road networks. The app leverages the Dijkstra algorithm to find optimal routes and intelligently snaps user-provided GPS coordinates to the nearest vertices on the network for precise alignment.
+
+To enhance routing accuracy and responsiveness, Carrive integrates advanced traffic congestion forecasting using a custom LSTM model combined with linear regression techniques. The model was initially trained on weather and traffic flow data from Chicago to capture key congestion patterns, and is now being extended and fine-tuned for Middletown, Connecticut, enabling actionable real-time traffic predictions and route optimization.
+
+This solution targets logistics, utilities, and transportation industries seeking dynamic, data-driven routing and operational intelligence.
+
+## Features
+
+- Shortest path routing using Dijkstra’s algorithm on road networks
+- GPS coordinate snapping to nearest network vertices for accuracy
+- Real-time traffic congestion forecasting powered by LSTM and linear regression (In-Progress)
+- Scalable model initially trained on Chicago data and fine-tuned for new cities
+- Web-based interactive map interface
+
+## Getting Started
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/your-username/carrive-routing-app.git
 
