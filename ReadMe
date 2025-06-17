@@ -1,3 +1,4 @@
+```markdown
 # Carrive Dynamic Routing App
 
 [Demo Video](https://youtu.be/1G6DZtXQV3U)
@@ -18,9 +19,61 @@ This solution targets logistics, utilities, and transportation industries seekin
 - Scalable model initially trained on Chicago data and fine-tuned for new cities
 - Web-based interactive map interface
 
+## File Structure
+
+```
+
+/project-root
+├── index.html                   # Main application page with map UI
+├── data/
+│   ├── road\_network.json       # Graph data representing road network vertices and edges
+│   ├── traffic\_data.json       # Real-time and historical traffic data inputs
+│   ├── weather\_data.json       # Weather data for congestion modeling
+│   └── model\_weights/          # Stored LSTM and regression model parameters
+├── src/
+│   ├── routing.js              # Dijkstra algorithm implementation and snapping logic
+│   ├── traffic\_model.js        # LSTM and regression traffic forecasting logic
+│   └── app.js                  # Main app initialization and event handling
+└── README.md                   # Project documentation
+
+````
+
 ## Getting Started
 
 1. Clone this repository:
    ```bash
    git clone https://github.com/your-username/carrive-routing-app.git
+````
 
+2. Place your data files inside the `data/` folder.
+3. Serve the app locally or host it on a static server.
+4. Open `index.html` in your browser to interact with the routing interface.
+
+## How It Works
+
+* **Routing:** User inputs or GPS coordinates are snapped to nearest vertices on the road network graph. The Dijkstra algorithm computes the shortest path along edges weighted by distance and predicted congestion.
+* **Traffic Forecasting:** The integrated LSTM + linear regression model predicts traffic conditions using historical and real-time weather and traffic data, adjusting edge weights dynamically for route optimization.
+* **Model Training:** Initial model training was conducted on Chicago data, leveraging traffic and weather patterns. Current efforts focus on adapting the model to Middletown, CT for localized accuracy.
+
+## Technologies Used
+
+* JavaScript with Leaflet for interactive mapping
+* Dijkstra’s algorithm for graph routing
+* LSTM neural networks combined with linear regression for traffic prediction
+* JSON data format for road network and sensor inputs
+
+## License
+
+This project is licensed under the MIT License.
+
+## Contact
+
+Maintained by Carrive Team
+Email: [support@carriveapp.com](mailto:support@carriveapp.com)
+
+```
+
+---
+
+Would you like help generating a minimal `index.html` or example routing code next?
+```
