@@ -1,44 +1,66 @@
-# Carrive Dynamic Routing App
-
-[Demo Video](https://youtu.be/1G6DZtXQV3U)
+# Carrive Dynamic Routing App - Backend API
 
 ## Overview
 
-Carrive is a web application that delivers efficient, real-time routing by computing shortest paths along existing road networks. The app leverages the Dijkstra algorithm to find optimal routes and intelligently snaps user-provided GPS coordinates to the nearest vertices on the network for precise alignment.
+This Flask-based backend provides core routing services for the Carrive Dynamic Routing App. It supports efficient, real-time shortest path computations on a road network stored in a PostGIS-enabled PostgreSQL database.
 
-To enhance routing accuracy and responsiveness, Carrive integrates advanced traffic congestion forecasting using a custom LSTM model combined with linear regression techniques. The model was initially trained on weather and traffic flow data from Chicago to capture key congestion patterns, and is now being extended and fine-tuned for Middletown, Connecticut, enabling actionable real-time traffic predictions and route optimization.
+Key features include:
 
-This solution targets logistics, utilities, and transportation industries seeking dynamic, data-driven routing and operational intelligence.
+- **Nearest vertex lookup:** Snaps arbitrary GPS coordinates to the closest vertex in the road network graph.
+- **Shortest route calculation:** Computes the shortest path between two vertices using a PostgreSQL routing function (e.g., pgRouting).
+- **GeoJSON-compatible coordinate output:** Returns results in EPSG:4326 (latitude/longitude) for easy integration with web mapping frontends.
 
-## Features
+This backend is designed to integrate with a frontend that leverages Dijkstra’s algorithm and traffic congestion models to provide dynamic, data-driven route optimization.
 
-- Shortest path routing using Dijkstra’s algorithm on road networks
-- GPS coordinate snapping to nearest network vertices for accuracy
-- Real-time traffic congestion forecasting powered by LSTM and linear regression
-- Scalable model initially trained on Chicago data and fine-tuned for new cities
-- Web-based interactive map interface
+## API Endpoints
+
+### `/`
+
+- **Method:** GET  
+- **Description:** Serves the main app page (`index.html`).
+
+### `/closest_vertex`
+
+- **Method:** GET  
+- **Parameters:**  
+  - `lat` (float): Latitude in EPSG:4326  
+  - `lng` (float): Longitude in EPSG:4326  
+- **Description:** Returns the nearest network vertex to the provided GPS point.  
+- **Response:** JSON object with vertex `id`, `lat`, and `lng`.
+
+**Example:**  
+`/closest_vertex?lat=41.55368&lng=-72.64610`
+
+### `/shortest_route`
+
+- **Method:** GET  
+- **Parameters:**  
+  - `start` (int): Start vertex ID  
+  - `end` (int): End vertex ID  
+- **Description:** Returns an ordered list of points representing the shortest route between the two vertices.  
+- **Response:** JSON array of points with sequence number, vertex `id`, `lat`, and `lng`.
+
+**Example:**  
+`/shortest_route?start=1&end=10`
 
 ## Getting Started
 
-1. Clone this repository:
+### Prerequisites
+
+- Python 3.7+  
+- Flask  
+- psycopg2  
+- PostgreSQL with PostGIS and pgRouting extensions installed  
+- Environment variables set for database connection:  
+  - `DB_HOST`  
+  - `DB_NAME`  
+  - `DB_USER`  
+  - `DB_PASSWORD`
+
+### Installation
+
+1. Clone the repository:
+
    ```bash
    git clone https://github.com/your-username/carrive-routing-app.git
-````
-
-2. Place your data files inside the `data/` folder.
-3. Serve the app locally or host it on a static server.
-4. Open `index.html` in your browser to interact with the routing interface.
-
-## How It Works
-
-* **Routing:** User inputs or GPS coordinates are snapped to nearest vertices on the road network graph. The Dijkstra algorithm computes the shortest path along edges weighted by distance and predicted congestion.
-* **Traffic Forecasting:** The integrated LSTM + linear regression model predicts traffic conditions using historical and real-time weather and traffic data, adjusting edge weights dynamically for route optimization.
-* **Model Training:** Initial model training was conducted on Chicago data, leveraging traffic and weather patterns. Current efforts focus on adapting the model to Middletown, CT for localized accuracy.
-
-## Technologies Used
-
-* JavaScript with Leaflet for interactive mapping
-* Dijkstra’s algorithm for graph routing
-* LSTM neural networks combined with linear regression for traffic prediction
-* JSON data format for road network and sensor inputs
-
+   cd carrive-routing-app
